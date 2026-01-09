@@ -3,8 +3,8 @@
  * @author <mettre l'adresse mail ou nom prenom>
  * @brief Fichier header de l'application
  *********************************************************************/
-#ifndef APPLICATION_H_
-#define APPLICATION_H_
+#ifndef APPLICATION_H
+#define APPLICATION_H
 
 /**
   * @class Application

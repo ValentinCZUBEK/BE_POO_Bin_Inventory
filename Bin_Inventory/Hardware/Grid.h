@@ -9,11 +9,12 @@
 struct Cellule {
     bool capteur;
     CRGB led;
+    int numeroleds;
 };
 
 struct Grid4x4 {
     Cellule cells[TAILLE][TAILLE];
-    void initialiser();  // Initialise capteurs + LEDs
+    void initialiser();  // appel de la fonction initialiser qui me permet d'initialiser les capteurs + LEDs
 };
 
 #endif

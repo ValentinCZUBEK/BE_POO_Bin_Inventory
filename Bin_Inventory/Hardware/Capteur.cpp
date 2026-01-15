@@ -27,14 +27,14 @@ void initialiserCapteurs() {
 void lireBoutonsPoussoirs(Grid4x4 *grille) {
     // Activation de chaque ligne (une par une)
     for (int i = 0; i < TAILLE; i++) {
-        digitalWrite(horizontals[i], HIGH);  // Active l'axe horizontale i
+        digitalWrite(lignes[i], HIGH);  // Active l'axe horizontale i
 
         // Vérification de chaque axe vertical 
         for (int j = 0; j < TAILLE; j++) {
             // Met à jour l'état du capteur dans la grille
-            grille->cells[i][j].capteur = (digitalRead(vertical[j]) == LOW);
+            grille->cells[i][j].capteur = (digitalRead(colonnes[j]) == LOW);
         }
 
-        digitalWrite(horizontals[i], LOW);  // Désactive l'axe horizontale i
+        digitalWrite(lignes[i], LOW);  // Désactive l'axe horizontale i
     }
 }

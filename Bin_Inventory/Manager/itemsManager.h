@@ -3,20 +3,22 @@
 #define ITEMMANAGER_H
 
 #include "file.h"
-
 #include "item.h"
+#include "Grid.h"
+#include <string.h>
 
 #include "Arduino.h"
 
 class itemManager{
     protected: 
+    Grid4x4 grid;   // Ajoute une instance de Grid4x4
 
     public:
 
     itemManager(){
         file ListeItems();
-
         Serial.begin(115200);
+        grid.initialiser();
     }
 
     ~itemManager();
@@ -119,8 +121,35 @@ class itemManager{
     }
 
     void enlightItem(){
+        Serial.println("Choose the item you want to enlighten from this list:");
+        displayItems();
 
+        // Attendre que l'utilisateur entre l'ID de l'item
+        while (Serial.available() == 0) {}
+        int itemId = Serial.parseInt();
+        Serial.print("You selected item ID: ");
+        Serial.println(itemId);
 
+        // Vérifier si l'ID est valide
+        if (itemId < 0 || itemId >= ListeItems.nombreCellules()) {
+            Serial.println("Invalid ID! Please try again.");
+            return;
+        }
+
+        // Récupérer l'item sélectionné
+        item* selectedItem = ListeItems.lireCelluleN(itemId);
+
+        // Récupérer les coordonnées des slots affectés par cet item
+        int nbSlots = selectedItem->nb_affected_slots;
+        coordinates* affectedSlots = selectedItem->affected_slots;
+
+        // Allumer les LEDs correspondantes en blanc
+        for (int i = 0; i < nbSlots; i++) {
+            int x = affectedSlots[i].x;
+            int y = affectedSlots[i].y;
+            grid.cells[x][y].led = CRGB::White; // Définir la couleur de la LED à blanc
+        }
+        Serial.println("LEDs updated for the selected item.");
     }
 
     void waitForInput(){

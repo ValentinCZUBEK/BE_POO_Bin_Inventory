@@ -14,7 +14,7 @@ protected:
 
 public:
 
-    caracteristics(string nm, string vl, int qty): name(nm), value(vl), quantity(qty) {
+    caracteristics(string name, string value, int quantity): name(name), value(value), quantity(quantity) {
     
     }
 

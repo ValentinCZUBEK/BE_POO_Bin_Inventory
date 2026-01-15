@@ -68,6 +68,14 @@ class file{
                 nbCellules--;
             }
         }
+        
+        int nombreCellules(){
+            return(nbCellules);
+        }
+
+        bool estVide(){
+            return(nbCellules==0?true:false);
+        }
 
         chose lireDerniereCellule(){  
             return(pFin->obtenirContenu());
@@ -77,14 +85,34 @@ class file{
             return(pDeb->obtenirContenu());
         }
 
-
-        int nombreCellules(){
-            return(nbCellules);
+        chose lireCelluleN(int nCell){
+            if((estVide()) || (nCell<0) || (nCell>=nbCellules)){
+                return(NULL);
+            }
+            cellule<chose> *pTemp=pDeb;
+            for(int i=0;i<=nCell;i++){
+                pTemp=pTemp->obtenirPostCellule();
+            }
+            return(pTemp->obtenirContenu());
         }
 
-        bool estVide(){
-            return(nbCellules==0?true:false);
+        void SupprimerCelluleN(int nCell){
+            if((estVide()) || (nCell<0) || (nCell>=nbCellules)){
+                return(NULL);
+            }
+            cellule<chose> *pTempD=pDeb;
+            cellule<chose> *pTempF=pDeb;
+            for(int i=0;i<nCell;i++){
+                pTempD=pTempD->obtenirPostCellule();                
+            }
+            pTempF=pTempD->obtenirPostCellule();
+            pTempF=pTempF->obtenirPostCellule();
+
+            pTempD->associerPostCellule(pTempF);
+
         }
+ 
+
 
 
         class Vide :public exception{

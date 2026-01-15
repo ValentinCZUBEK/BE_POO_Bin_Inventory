@@ -1,6 +1,6 @@
 
 #include "item.h"
 
-item::item(int nb_sl, struct coordinates *aff_sl, string nm, string vl, int qty): bin(nb_sl, aff_sl), caracteristics(nm, vl, qty){
+item::item(int nb_slots, struct coordinates *affected_slots, string name, string value, int quantity): bin(nb_slots, affected_slots), caracteristics(name, value, quantity){
     
 }

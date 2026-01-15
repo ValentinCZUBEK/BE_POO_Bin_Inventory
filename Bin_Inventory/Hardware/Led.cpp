@@ -57,9 +57,8 @@ void VerifierEtMiseAJourLEDs(Grid4x4 *grille) {
                 }
             }
         }
-    if (changementDetecte = true){
-         FastLED.show();  // Met à jour les LEDs
-    }
-=
+        if (changementDetecte = true){
+            FastLED.show();  // Met à jour les LEDs
+        }
     }
 }

@@ -11,7 +11,7 @@ protected:
 
 public:
 
-    item(int nb_sl, struct coordinates *aff_sl, string nm, string vl, int qty);
+    item(int nb_slots, struct coordinates *affected_slots, string name, string value, int quantity);
 
     ~item(){
 

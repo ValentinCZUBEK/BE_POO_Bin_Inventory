@@ -16,9 +16,7 @@ protected:
 
 public:
 
-    bin(int nb_sl, struct coordinates *aff_sl){
-
-    }
+    bin(int nb_slots, struct coordinates *affected_slots);
 
     ~bin(){
     

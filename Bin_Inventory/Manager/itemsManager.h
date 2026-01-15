@@ -40,8 +40,8 @@ class itemManager{
         ListeItems.supprimerDerniereCellule();
     }
 
-    void gridRemoveCells(n, struct coordinate *removed_slots){
-
+    void gridRemoveCells(nb_slots, struct coordinate *affected_slots){
+        
 
     }
 

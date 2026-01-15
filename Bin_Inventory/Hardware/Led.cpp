@@ -39,7 +39,7 @@ void initialiserLEDs() {
 }
 
 // Vérification et mise à jour des LEDs en physiques, en fonction de l'état de la grille
-void VerifierEtMiseAJourLEDs(Grid4x4 *grille) {
+void mettreAJourLEDs(Grid4x4 *grille) {
     unsigned long maintenant = millis();
     //Rafraichissement toute les 200ms 
     if (maintenant - dernierRafraichissement >= INTERVALE_RAFRAICHISSEMENT){

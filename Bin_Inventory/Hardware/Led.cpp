@@ -16,9 +16,8 @@ void mettreAJourLEDs(Grid4x4 *grille, CRGB *leds) {
 */
 
 //Définition pour utilisation de fast_leds
-#define NUM_LEDS 16
 #define DATA_PIN 12
-#define INTERVALE_RAFRAICHISSEMENT 200ms
+#define INTERVALE_RAFRAICHISSEMENT 200
 
 extern CRGB leds[NUM_LEDS];  // Les Leds physiques sont déclaré dans projet_name.ino
 static unsigned long dernierRafraichissement = 0;  // Dernier moment de rafraîchissement
@@ -48,7 +47,7 @@ void mettreAJourLEDs(Grid4x4 *grille) {
         //Je m'occupe maintenant de la mise a jour de la LED en fonction de notre grid.
         for (int i = 0; i < TAILLE; i++) {
             for (int j = 0; j < TAILLE; j++) {
-                int numLed = grille->cells[i][j].numleds;  // Utilise le numéro de LED stocké
+                int numLed = grille->cells[i][j].numeroleds;  // Utilise le numéro de LED stocké
                 leds[numLed] = grille->cells[i][j].led;  // Applique la couleur
 
                 if (leds[numLed] != etatPrecedentLEDs[numLed]) {

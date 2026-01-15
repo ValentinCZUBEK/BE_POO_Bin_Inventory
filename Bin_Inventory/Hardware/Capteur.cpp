@@ -2,9 +2,9 @@
 #include <Arduino.h>  // inclu digitalRead/digitalWrite
 
 // Broches horizontale (sorties)
-const int horizontals[TAILLE] = {2, 3, 4, 5}; //a adapté pour notre carte
+const int lignes[TAILLE] = {2, 3, 4, 5}; //a adapté pour notre carte
 // Broches verticale (entrées)
-const int vertical[TAILLE] = {6, 7, 8, 9};//a adapté pour notre carte
+const int colonnes[TAILLE] = {6, 7, 8, 9};//a adapté pour notre carte
 
 
 

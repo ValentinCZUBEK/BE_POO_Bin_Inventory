@@ -6,7 +6,7 @@ void Grid4x4::initialiser() {
         for (int j = 0; j < TAILLE; j++) {
             cells[i][j].capteur = false;  // Capteur inactif
             cells[i][j].led = CRGB::Black;  // LED éteinte
-            cells[i][j].numleds=numeroled;
+            cells[i][j].numeroleds=numeroled;
             numeroled ++;
         }
     }

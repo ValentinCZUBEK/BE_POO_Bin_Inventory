@@ -31,8 +31,8 @@ void itemManager::gridRemoveCells(int nb_slots, struct coordinates *affected_slo
         bool toRemove = false;
         
         // Vérifier si au moins un slot de l'item est dans affected_slots
-        for(int j = 0; j < current->nb_affected_slots; j++){
-            coordinates slot = current->affected_slots[j];
+        for(int j = 0; j < current->getNbAffectedSlots(); j++){
+            coordinates slot = current->getAffectedSlots()[j];
             for(int k = 0; k < nb_slots; k++){
                 if(slot.x == affected_slots[k].x && slot.y == affected_slots[k].y){
                     toRemove = true;
@@ -62,11 +62,11 @@ void itemManager::displayItems(){
         item* temp = ListeItems.lireCelluleN(i);
         Serial.print(i);
         Serial.print("\t | \t");
-        Serial.print(temp->name);
+        Serial.print(temp->getName());
         Serial.print("\t | \t");
-        Serial.print(temp->value);
+        Serial.print(temp->getValue());
         Serial.print("\t | \t");
-        Serial.println(temp->quantity);
+        Serial.println(temp->getQuantity());
     }
 }
 
@@ -101,15 +101,15 @@ void itemManager::modifyQuantity(){
 
     switch (operation) {
         case '=':
-            selectedItem->quantity = newValue;
+            selectedItem->setQuantity(newValue);
             Serial.println("Quantity updated!");
             break;
         case '+':
-            selectedItem->quantity += newValue;
+            selectedItem->setQuantity(selectedItem->getQuantity() + newValue);
             Serial.println("Quantity increased!");
             break;
         case '-':
-            selectedItem->quantity -= newValue;
+            selectedItem->setQuantity(selectedItem->getQuantity() - newValue);
             Serial.println("Quantity decreased!");
             break;
         default:
@@ -134,8 +134,8 @@ void itemManager::enlightItem(){
 
     item* selectedItem = ListeItems.lireCelluleN(itemId);
 
-    int nbSlots = selectedItem->nb_affected_slots;
-    coordinates* affectedSlots = selectedItem->affected_slots;
+    int nbSlots = selectedItem->getNbAffectedSlots();
+    coordinates* affectedSlots = selectedItem->getAffectedSlots();
 
     for (int i = 0; i < nbSlots; i++) {
         int x = affectedSlots[i].x;

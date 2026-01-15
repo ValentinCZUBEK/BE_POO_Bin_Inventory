@@ -12,6 +12,10 @@ protected:
     unsigned int quantity=0;
 
 public:
+    String getName() { return name; }
+    String getValue() { return value; }
+    unsigned int getQuantity() { return quantity; }
+    void setQuantity(unsigned int q) { quantity = q; }
 
     caracteristics(String name, String value, int quantity): name(name), value(value), quantity(quantity) {
     

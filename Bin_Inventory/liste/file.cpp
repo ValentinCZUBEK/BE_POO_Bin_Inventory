@@ -32,7 +32,7 @@ void file<chose>::ajouterCellule(chose contenu) {
 template <typename chose>
 void file<chose>::supprimerPremiereCellule() {
     if (estVide()) {
-        throw Vide();
+        return;
     } else {
         cellule<chose>* nouveau_pDeb = pDeb->obtenirPostCellule();
         delete pDeb;  // Assuming we need to delete the node
@@ -44,7 +44,7 @@ void file<chose>::supprimerPremiereCellule() {
 template <typename chose>
 void file<chose>::supprimerDerniereCellule() {
     if (estVide()) {
-        throw Vide();
+        return;
     } else {
         cellule<chose>* pTemp = pDeb;
         cellule<chose>* pTempMoinsUn = pDeb;
@@ -77,7 +77,7 @@ bool file<chose>::estVide() {
 template <typename chose>
 chose file<chose>::lireDerniereCellule() {
     if (estVide()) {
-        throw Vide();
+        return NULL;
     }
     return pFin->obtenirContenu();
 }
@@ -85,7 +85,7 @@ chose file<chose>::lireDerniereCellule() {
 template <typename chose>
 chose file<chose>::lirePremiereCellule() {
     if (estVide()) {
-        throw Vide();
+        return NULL;
     }
     return pDeb->obtenirContenu();
 }
@@ -93,7 +93,7 @@ chose file<chose>::lirePremiereCellule() {
 template <typename chose>
 chose file<chose>::lireCelluleN(int nCell) {
     if (estVide() || nCell < 0 || nCell >= nbCellules) {
-        throw Vide();
+        return NULL;
     }
     cellule<chose>* pTemp = pDeb;
     for (int i = 0; i < nCell; i++) {

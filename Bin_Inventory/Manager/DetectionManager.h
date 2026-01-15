@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 #include "../Hardware/Grid.h"
-#include "itemManager.h"
+#include "itemsManager.h"
 
 struct coordinates {
     int x;

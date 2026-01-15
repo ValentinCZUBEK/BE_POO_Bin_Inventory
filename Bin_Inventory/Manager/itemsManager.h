@@ -3,8 +3,8 @@
 #define ITEMMANAGER_H
 
 #include "../liste/file.h"
-#include "item.h"
-#include "Grid.h"
+#include "../liste/item.h"
+#include "../Hardware/Grid.h"
 #include <string.h>
 #include "Arduino.h"
 

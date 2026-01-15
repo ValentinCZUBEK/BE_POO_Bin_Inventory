@@ -2,7 +2,7 @@
 #define DETECTION_MANAGER_H
 
 #include <Arduino.h>
-#include "Grid.h"
+#include "../Hardware/Grid.h"
 #include "itemManager.h"
 
 struct coordinates {

@@ -5,12 +5,6 @@
 #include "file.h"
 
 
-struct itemAndIdentifier{
-    int identifier;
-    class item item;
-    
-};
-
 class itemManager{
     protected: 
 
@@ -21,7 +15,7 @@ class itemManager{
     }
 
     ~itemManager();
-
+/*
     int IdExists(int Id){        
         int IdsArray[ListeItems.nombreCellules()];
         for(int i=0;i<ListeItems.nombreCellules();i++){
@@ -34,35 +28,31 @@ class itemManager{
         }
         return(-1);
     }
+*/
 
     void add(int nb_slots, struct coordinates *affected_slots, string name, string value, int quantity){
-        int NewId=0;
-        bool found=false;
-        while(!found){
-            if(IdExists(NewId) != -1){
-                NewId++;
-            }
-            else{
-                found=true; 
-            }                      
-        }
 
-        struct itemAndIdentifier temporary;
-        temporary.identifier = NewId;
-        temporary.item = new item(int nb_slots, struct coordinates *affected_slots, string name, string value, int quantity);
-
-        ListeItems.ajouterCellule(temporary);         
+        ListeItems.ajouterCellule(new item(int nb_slots, struct coordinates *affected_slots, string name, string value, int quantity));         
     }
+
     void remove(int Id){
-        if(IdExists(Id) = -1){
+        if(Id<0 || Id >= ListeItems.nombreCellules()){
             return;
         }
-        SupprimerCelluleN(IdExists(Id));
+        SupprimerCelluleN(Id);
     }
     
     void dell(){
         ListeItems.supprimerDerniereCellule();
     }
+
+
+
+
+
+
+
+
 
     void updateLeds(){
 
@@ -70,17 +60,12 @@ class itemManager{
 
     void displayItems(){
 
-        int IdsArray[ListeItems.nombreCellules()];
         for(int i=0;i<ListeItems.nombreCellules();i++){
-            IdsArray[i]=ListeItems.lireCelluleN(i)->identifier;
-        }
-        for(int i=0;i<ListeItems.nombreCellules();i++){
+            ListeItems.lireCelluleN(i)
             cout << 
             //à remplacer par un serial.print
             
         }
-        
-
     }
 
     void waitForInput(){

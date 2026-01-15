@@ -10,7 +10,7 @@ class caracteristics{
 protected:
     string name;
     string value;
-    int quantity=0;
+    unsigned int quantity=0;
 
 public:
 
@@ -22,7 +22,21 @@ public:
     
     }
 
-
+    void operator = (const caracteristic truc)const{
+        quantity = truc.quantity;
+    }
+    void operator + (const int addedQuantity)const{
+        quantity += addedQuantity;                
+    }
+    void operator - (const int removedQuantity)const{
+        quantity -= removedQuantity;                
+    }
+    void operator += (const int addedQuantity)const{
+        quantity += addedQuantity;                
+    }
+    void operator -= (const int removedQuantity)const{
+        quantity -= removedQuantity;                
+    }
 
 };
 

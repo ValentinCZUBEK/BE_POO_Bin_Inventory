@@ -4,6 +4,7 @@
 
 #include "file.h"
 
+#include "item.h"
 
 class itemManager{
     protected: 
@@ -59,12 +60,11 @@ class itemManager{
     }
 
     void displayItems(){
-
+        cout << "Identifier" << "\t | \t" << "name" << "\t | \t" << "value" << "\t | \t" << "quantity" << endl;
         for(int i=0;i<ListeItems.nombreCellules();i++){
-            ListeItems.lireCelluleN(i)
-            cout << 
+            item temp = ListeItems.lireCelluleN(i);
+            cout << i << "\t | \t" << temp->name << "\t | \t" << temp->value << "\t | \t" << temp->quantity << endl;
             //à remplacer par un serial.print
-            
         }
     }
 

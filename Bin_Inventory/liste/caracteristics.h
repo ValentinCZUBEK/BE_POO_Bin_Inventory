@@ -2,19 +2,22 @@
 #ifndef CARACTERISTICS_H
 #define CARACTERISTICS_H
 
-#include <string>
-using namespace std;
+#include <Arduino.h>
 
 class caracteristics{
 
 protected:
-    string name;
-    string value;
+    String name;
+    String value;
     unsigned int quantity=0;
 
 public:
 
-    caracteristics(string name, string value, int quantity): name(name), value(value), quantity(quantity) {
+    caracteristics(String name, String value, int quantity): name(name), value(value), quantity(quantity) {
+    
+    }
+
+    ~caracteristics(){
     
     }
 

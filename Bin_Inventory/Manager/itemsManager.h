@@ -20,7 +20,7 @@ class itemManager{
     itemManager();
     ~itemManager();
 
-    void add(int nb_slots, struct coordinates *affected_slots, string name, string value, int quantity);
+    void add(int nb_slots, struct coordinates *affected_slots, String name, String value, int quantity);
     void remove(int Id);
     void dell();
     void gridRemoveCells(int nb_slots, struct coordinates *affected_slots);

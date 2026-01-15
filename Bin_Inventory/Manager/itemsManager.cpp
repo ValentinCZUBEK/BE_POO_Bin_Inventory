@@ -9,7 +9,7 @@ itemManager::~itemManager(){
     // Destructeur si nécessaire
 }
 
-void itemManager::add(int nb_slots, struct coordinates *affected_slots, string name, string value, int quantity){
+void itemManager::add(int nb_slots, struct coordinates *affected_slots, String name, String value, int quantity){
     ListeItems.ajouterCellule(new item(nb_slots, affected_slots, name, value, quantity));
 }
 

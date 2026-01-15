@@ -1,7 +1,6 @@
 #ifndef FILE_H
 #define FILE_H
 
-#include <stdexcept>
 #include "cellule.h"
 
 template <typename chose>
@@ -24,9 +23,9 @@ class file {
         chose lireCelluleN(int nCell);
         void supprimerCelluleN(int nCell);
 
-        class Vide : public std::exception {
+        class Vide {
             public:
-                const char* what() const noexcept override {
+                const char* what() const {
                     return "Impossible de supprimer un élément d'une file vide.";
                 }
         };

@@ -2,6 +2,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include <Arduino.h>
 #include "bin.h"
 #include "caracteristics.h"
 
@@ -11,7 +12,7 @@ protected:
 
 public:
 
-    item(int nb_slots, struct coordinates *affected_slots, string name, string value, int quantity);
+    item(int nb_slots, struct coordinates *affected_slots, String name, String value, int quantity);
 
     ~item(){
 

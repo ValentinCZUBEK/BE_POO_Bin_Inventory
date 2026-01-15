@@ -93,7 +93,7 @@ chose file<chose>::lirePremiereCellule() {
 template <typename chose>
 chose file<chose>::lireCelluleN(int nCell) {
     if (estVide() || nCell < 0 || nCell >= nbCellules) {
-        throw std::out_of_range("Index out of range");
+        throw Vide();
     }
     cellule<chose>* pTemp = pDeb;
     for (int i = 0; i < nCell; i++) {

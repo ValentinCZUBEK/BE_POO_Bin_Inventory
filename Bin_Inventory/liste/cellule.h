@@ -2,7 +2,6 @@
 #ifndef CELLULE_H
 #define CELLULE_H
 
-
 template <typename truc>
 class cellule {
     protected:
@@ -11,26 +10,13 @@ class cellule {
     
     public:
 
-        cellule(truc cont) :contenu(cont){
-            //return(this);
-        }
-
-        truc obtenirContenu(){
-            return(contenu);
-        }
-
-        cellule<truc> *obtenirPostCellule(){
-            return(pCellule);
-        }
-
-        void associerPostCellule(cellule<truc> *p_cell){
-            pCellule=p_cell;            
-        }
-
-        ~cellule(){
-            contenu = NULL;
-        }
+        cellule(truc cont);
+        truc obtenirContenu();
+        cellule<truc> *obtenirPostCellule();
+        void associerPostCellule(cellule<truc> *p_cell);
+        ~cellule();
 };
 
+#include "cellule.cpp"
 
 #endif

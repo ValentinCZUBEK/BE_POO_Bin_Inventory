@@ -21,7 +21,7 @@ public:
     ~caracteristics(){
     
     }
-
+/*
     void operator = (const caracteristic truc)const{
         quantity = truc.quantity;
     }
@@ -37,6 +37,23 @@ public:
     void operator -= (const int removedQuantity)const{
         quantity -= removedQuantity;                
     }
+*/
+
+    // Opérateur += pour ajouter une quantité
+    void operator+=(const int addedQuantity) {
+        quantity += addedQuantity;
+    }
+
+    // Opérateur -= pour soustraire une quantité
+    void operator-=(const int removedQuantity) {
+        quantity -= removedQuantity;
+    }
+
+    // Opérateur = pour affecter une quantité
+    void operator=(const int newQuantity) {
+        quantity = newQuantity;
+    }
+
 
 };
 

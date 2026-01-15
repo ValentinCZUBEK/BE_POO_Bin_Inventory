@@ -5,6 +5,7 @@
  *********************************************************************/
 #include "Application.h"
 
+#include "Arduino.h"
 
 Application::Application()
 {
@@ -21,7 +22,8 @@ Application::~Application()
 void Application::init(void)
 {
   // Code
-    ;
+  Serial.begin(115200);
+  Grid4x4 grid;   // Ajoute une instance de Grid4x4
 }
 
 

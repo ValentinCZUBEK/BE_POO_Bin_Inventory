@@ -23,12 +23,20 @@ void Application::init(void)
 {
   // Code
   Serial.begin(115200);
-  Grid4x4 grid;   // Ajoute une instance de Grid4x4
+  grid.initialiser();
+  // Autres initialisations si nécessaires
 }
 
 
 void Application::run(void)
 {
   // Code
-    ;
+  // Détecter les changements sur la grille
+  detectionManager.detecterChangement(&grid);
+  
+  // Gérer les détections (ajout/suppression d'items)
+  detectionManager.gererDetection(&grid, &manager);
+  
+  // Gérer les interactions utilisateur via Serial
+  manager.actionChoice();
 }

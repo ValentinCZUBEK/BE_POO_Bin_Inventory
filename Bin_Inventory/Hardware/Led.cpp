@@ -16,7 +16,7 @@ void mettreAJourLEDs(Grid4x4 *grille, CRGB *leds) {
 */
 
 //Définition pour utilisation de fast_leds
-#define DATA_PIN 12
+#define DATA_PIN 10
 #define INTERVALE_RAFRAICHISSEMENT 200
 
 extern CRGB leds[NUM_LEDS];  // Les Leds physiques sont déclaré dans projet_name.ino

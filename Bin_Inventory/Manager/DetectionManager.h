@@ -5,11 +5,6 @@
 #include "../Hardware/Grid.h"
 #include "itemsManager.h"
 
-struct coordinates {
-    int x;
-    int y;
-};
-
 class DetectionManager {
 private:
     bool etatPrecedentCapteurs[TAILLE][TAILLE];

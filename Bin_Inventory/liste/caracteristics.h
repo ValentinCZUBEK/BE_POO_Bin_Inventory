@@ -20,10 +20,6 @@ public:
     ~caracteristics(){
     
     }
-
-    ~caracteristics(){
-    
-    }
 /*
     void operator = (const caracteristic truc)const{
         quantity = truc.quantity;

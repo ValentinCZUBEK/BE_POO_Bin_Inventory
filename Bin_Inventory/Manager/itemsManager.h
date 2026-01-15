@@ -13,7 +13,7 @@ class itemManager{
     Grid4x4 grid;
 
     private:
-    file ListeItems;
+    file<item*> ListeItems;
 
     public:
 

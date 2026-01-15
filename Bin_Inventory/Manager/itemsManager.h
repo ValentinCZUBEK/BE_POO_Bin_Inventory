@@ -39,12 +39,6 @@ class itemManager{
     }
 
 
-
-
-    void updateLeds(){
-
-    }
-
     void displayItems(){
         //cout << "Identifier" << "\t | \t" << "name" << "\t | \t" << "value" << "\t | \t" << "quantity" << endl;
         Serial.print("Identifier");
@@ -73,81 +67,55 @@ class itemManager{
         Serial.println("Choose the item you to modify the quantity from this list :")
         displayItems();
 
-//Attendre que l'utilisateur entre l'ID de l'item
-    Serial.println("Enter the ID of the item you want to modify:");
-    while (Serial.available() == 0) {}
-    int itemId = Serial.parseInt();
-    Serial.print("You selected item ID: ");
-    Serial.println(itemId);
+        //Attendre que l'utilisateur entre l'ID de l'item
+        Serial.println("Enter the ID of the item you want to modify:");
+        while (Serial.available() == 0) {}
+        int itemId = Serial.parseInt();
+        Serial.print("You selected item ID: ");
+        Serial.println(itemId);
 
-    // Vérifier si l'ID est valide
-    if (itemId < 0 || itemId >= ListeItems.nombreCellules()) {
-        Serial.println("Invalid ID! Please try again.");
-        return;
-    }
-
-    // Afficher les options de modification
-    Serial.println("Enter '=' to set a new quantity, '+' to add, or '-' to subtract:");
-    while (Serial.available() == 0) {}
-    char operation = Serial.read();
-    Serial.print("You selected: ");
-    Serial.println(operation);
-
-    // Demander la valeur à appliquer
-    Serial.println("Enter the value:");
-    while (Serial.available() == 0) {}
-    int newValue = Serial.parseInt();
-    Serial.print("You entered: ");
-    Serial.println(newValue);
-
-    // Récupérer l'item sélectionné
-    item* selectedItem = ListeItems.lireCelluleN(itemId);
-
-    // Appliquer la modification
-    switch (operation) {
-        case '=':
-            selectedItem->caracteristic = newValue; // Utilise l'opérateur =
-            Serial.println("Quantity updated!");
-            break;
-        case '+':
-            selectedItem->caracteristic += newValue; // Utilise l'opérateur +=
-            Serial.println("Quantity increased!");
-            break;
-        case '-':
-            selectedItem->caracteristic -= newValue; // Utilise l'opérateur -=
-            Serial.println("Quantity decreased!");
-            break;
-        default:
-            Serial.println("Invalid operation! Please try again.");
-    }
+        // Vérifier si l'ID est valide
+        if (itemId < 0 || itemId >= ListeItems.nombreCellules()) {
+            Serial.println("Invalid ID! Please try again.");
+            return;
         }
 
+        // Afficher les options de modification
+        Serial.println("Enter '=' to set a new quantity, '+' to add, or '-' to subtract:");
+        while (Serial.available() == 0) {
+        }
+        char operation = Serial.read();
+        Serial.print("You selected: ");
+        Serial.println(operation);
 
-        switch (incomingByte)
-        {
+        // Demander la valeur à appliquer
+        Serial.println("Enter the value:");
+        while (Serial.available() == 0) {
+        }
+        int newValue = Serial.parseInt();
+        Serial.print("You entered: ");
+        Serial.println(newValue);
+
+        // Récupérer l'item sélectionné
+        item* selectedItem = ListeItems.lireCelluleN(itemId);
+
+        // Appliquer la modification
+        switch (operation) {
             case '=':
-                item.caracteristic = newValue;                
+                selectedItem->caracteristic = newValue; // Utilise l'opérateur =
+                Serial.println("Quantity updated!");
                 break;
             case '+':
-                item.caracteristic += newValue;
+                selectedItem->caracteristic += newValue; // Utilise l'opérateur +=
+                Serial.println("Quantity increased!");
                 break;
             case '-':
-                item.caracteristic -= newValue;
+                selectedItem->caracteristic -= newValue; // Utilise l'opérateur -=
+                Serial.println("Quantity decreased!");
                 break;
             default:
-                Serial.print("You entered an incorrect keystroke ! ");
-                //Serial.println(incomingByte,char);
+                Serial.println("Invalid operation! Please try again.");
         }
-
-        
-
-
-
-
-        
-        
-
-
     }
 
     void enlightItem(){
@@ -159,7 +127,7 @@ class itemManager{
         //une fois qu'on appuie sur entrée
         //on affiche tout ce qu'il y a dans la liste chainee
 
-        Serial.println("Press q to modify a quantity or d to enlight an item of the inventory");
+        Serial.println("Press q to modify a quantity or e to enlight an item of the inventory");
 
         int incomingByte = 0;
 
@@ -174,15 +142,13 @@ class itemManager{
             case 'q':
                 modifyQuantity();
                 break;
-            case 'i':
+            case 'e':
                 enlightItem();
                 break;
             default:
                 Serial.print("You entered an incorrect keystroke ! ");
                 //Serial.println(incomingByte,char);
         }
-            
-        
     }
 
 };

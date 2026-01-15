@@ -2,7 +2,7 @@
 #ifndef ITEMMANAGER_H
 #define ITEMMANAGER_H
 
-#include "liste/file.h"
+#include "../liste/file.h"
 #include "item.h"
 #include "Grid.h"
 #include <string.h>

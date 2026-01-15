@@ -40,6 +40,11 @@ class itemManager{
         ListeItems.supprimerDerniereCellule();
     }
 
+    void gridRemoveCells(n, struct coordinate *removed_slots){
+
+
+    }
+
 
     void displayItems(){
         //cout << "Identifier" << "\t | \t" << "name" << "\t | \t" << "value" << "\t | \t" << "quantity" << endl;

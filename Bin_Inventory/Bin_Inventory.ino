@@ -1,5 +1,4 @@
 #include "Application.h"
-#include "Application.cpp"
 #include "Hardware/Grid.cpp"
 #include "Hardware/Capteur.cpp"
 #include "Hardware/Led.cpp"

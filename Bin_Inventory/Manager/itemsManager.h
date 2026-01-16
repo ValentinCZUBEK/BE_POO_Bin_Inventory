@@ -10,7 +10,7 @@
 
 class itemManager{
     protected: 
-    Grid4x4 grid;
+    //Grid4x4 grid;
 
     private:
     file<item*> ListeItems;

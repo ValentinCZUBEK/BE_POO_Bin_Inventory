@@ -1,19 +1,5 @@
 #include "Led.h"
 
-/*
-Je ne l'utilise pas, je garde pour que mon binome puisse s'en inspiré 
-void mettreAJourLEDs(Grid4x4 *grille, CRGB *leds) {
-    // Met à jour les couleurs des LEDs en fonction des capteurs
-    for (int i = 0; i < TAILLE; i++) {
-        for (int j = 0; j < TAILLE; j++) {
-            if (grille->cells[i][j].capteur) {
-                grille->cells[i][j].led = CRGB::Red;
-            } else {
-                grille->cells[i][j].led = CRGB::Black;
-            }
-        }
-    }
-*/
 
 //Définition pour utilisation de fast_leds
 #define DATA_PIN 2

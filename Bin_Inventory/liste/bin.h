@@ -19,7 +19,7 @@ public:
     int getNbAffectedSlots() { return nb_affected_slots; }
     coordinates* getAffectedSlots() { return affected_slots; }
     ~bin(){
-    
+        delete[] affected_slots;
     }
 
 

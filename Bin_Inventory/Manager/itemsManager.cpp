@@ -160,29 +160,37 @@ void itemManager::enlightItem(Grid4x4* grid){
 
     int nbSlots = selectedItem->getNbAffectedSlots();
     coordinates* affectedSlots = selectedItem->getAffectedSlots();
+    
+    Serial.print("Number of affected slots: ");
+    Serial.println(nbSlots);
+    
 
     for (int i = 0; i < nbSlots; i++) {
         int x = affectedSlots[i].x;
         int y = affectedSlots[i].y;
-        grid->cells[x][y].led = CRGB::White;
+        grid->cells[x][y].led = CRGB::Red;
     }
     
-    // Update the physical LEDs immediately
-    for (int i = 0; i < TAILLE; i++) {
-        for (int j = 0; j < TAILLE; j++) {
-            int numLed = grid->cells[i][j].numeroleds;
-            leds[numLed] = grid->cells[i][j].led;
-            Serial.print("LED at (");
-            Serial.print(i);
-            Serial.print(", ");
-            Serial.print(j);
-            Serial.print(") set to ");
-            Serial.println(leds[numLed]);
-        }
+    // Update the physical LEDs immediately - only update affected slots
+    for (int i = 0; i < nbSlots; i++) {
+        int x = affectedSlots[i].x;
+        int y = affectedSlots[i].y;
+        int numLed = grid->cells[x][y].numeroleds;
+        leds[numLed] = grid->cells[x][y].led;
     }
     FastLED.show();
     
     Serial.println("LEDs updated for the selected item.");
+    
+    // Keep the LEDs on for 5 seconds
+    delay(5000);
+    
+    // Reset LEDs to black after timeout
+    for (int i = 0; i < nbSlots; i++) {
+        int x = affectedSlots[i].x;
+        int y = affectedSlots[i].y;
+        grid->cells[x][y].led = CRGB::Black;
+    }
 }
 
 void itemManager::actionChoice(Grid4x4* grid){

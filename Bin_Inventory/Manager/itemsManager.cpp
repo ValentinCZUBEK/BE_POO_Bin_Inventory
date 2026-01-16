@@ -94,6 +94,7 @@ void itemManager::modifyQuantity(){
     Serial.println("Enter '=' to set a new quantity, '+' to add, or '-' to subtract:");
     while (Serial.available() == 0) {}
     char operation = Serial.read();
+    while (Serial.available() > 0) Serial.read(); // clear buffer
     Serial.print("You selected: ");
     Serial.println(operation);
 
@@ -168,6 +169,8 @@ void itemManager::actionChoice(){
 
     while (!(Serial.available() > 0)) {}
     int incomingByte = Serial.read();
+    // Clear any remaining input in buffer
+    while (Serial.available() > 0) Serial.read();
     Serial.print("Received: ");
     Serial.println((char)incomingByte);
     

@@ -13,9 +13,9 @@ protected:
 public:
 
     item(int nb_slots, struct coordinates *affected_slots, String name, String value, int quantity);
+    // Constructeur qui initialise un item avec les caractéristiques et les spécifications de la bin/boite
 
     ~item(){
-
     }
 
 };

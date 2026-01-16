@@ -12,35 +12,21 @@ protected:
     unsigned int quantity=0;
 
 public:
-    String getName() { return name; }
-    String getValue() { return value; }
-    unsigned int getQuantity() { return quantity; }
-    void setQuantity(unsigned int q) { quantity = q; }
 
-    caracteristics(String name, String value, int quantity): name(name), value(value), quantity(quantity) {
-    
-    }
+    caracteristics(String name, String value, int quantity);   
+    // Constructeur qui créé une caractéristique avec un nom, une valeur et une quantité
 
-    ~caracteristics(){
+
+    ~caracteristics();
+
+    // Getters et setters
+    String getName();
+    String getValue();
+
+    unsigned int getQuantity();     //finalement utilisé à la place des opérateurs surchargés car ceux-ci ne fonctionnaient pas correctement
+    void setQuantity(unsigned int q);
+
     
-    }
-/*
-    void operator = (const caracteristic truc)const{
-        quantity = truc.quantity;
-    }
-    void operator + (const int addedQuantity)const{
-        quantity += addedQuantity;                
-    }
-    void operator - (const int removedQuantity)const{
-        quantity -= removedQuantity;                
-    }
-    void operator += (const int addedQuantity)const{
-        quantity += addedQuantity;                
-    }
-    void operator -= (const int removedQuantity)const{
-        quantity -= removedQuantity;                
-    }
-*/
 
     // Opérateur += pour ajouter une quantité
     void operator+=(const int addedQuantity) {

@@ -46,6 +46,6 @@ void Application::run(void)
   
   // Gérer les interactions utilisateur via Serial
   if(Serial.available()>0){
-  manager.actionChoice();
+  manager.actionChoice(&grid);
   }
 }

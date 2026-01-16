@@ -29,6 +29,9 @@ static CRGB etatPrecedentLEDs[NUM_LEDS];  // État précédent des LEDs pour com
 void initialiserLEDs() {
     FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
     FastLED.clear();
+    for (int i=0 ; i < NUM_LEDS ; i++) {
+        leds[i] = CRGB :: Red;
+    }
     FastLED.show();
 
     //initialise l'état précédent des leds 
@@ -51,14 +54,10 @@ void mettreAJourLEDs(Grid4x4 *grille) {
                 int numLed = grille->cells[i][j].numeroleds;  // Utilise le numéro de LED stocké
                 leds[numLed] = grille->cells[i][j].led;  // Applique la couleur
 
-                if (leds[numLed] != etatPrecedentLEDs[numLed]) {
-                    etatPrecedentLEDs[numLed] = leds[numLed];
-                    changementDetecte = true;
-                }
             }
+
         }
-        if (changementDetecte = true){
-            FastLED.show();  // Met à jour les LEDs
-        }
+        FastLED.show();  // Met à jour les LEDs
+           
     }
 }

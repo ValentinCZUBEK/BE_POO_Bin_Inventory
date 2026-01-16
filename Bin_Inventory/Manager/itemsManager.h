@@ -26,8 +26,8 @@ class itemManager{
     void gridRemoveCells(int nb_slots, struct coordinates *affected_slots);
     void displayItems();
     void modifyQuantity();
-    void enlightItem();
-    void actionChoice();
+    void enlightItem(Grid4x4* grid);
+    void actionChoice(Grid4x4* grid);
 };
 
 #endif

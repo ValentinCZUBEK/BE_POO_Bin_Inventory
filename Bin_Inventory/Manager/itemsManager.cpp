@@ -1,8 +1,6 @@
 #include "itemsManager.h"
 
 itemManager::itemManager(){
-    Serial.begin(115200);
-    grid.initialiser();
 }
 
 itemManager::~itemManager(){
@@ -93,13 +91,20 @@ void itemManager::modifyQuantity(){
 
     Serial.println("Enter '=' to set a new quantity, '+' to add, or '-' to subtract:");
     while (Serial.available() == 0) {}
-    char operation = Serial.read();
-    while (Serial.available() > 0) Serial.read(); // clear buffer
+    String operationInput = Serial.readStringUntil('\n');
+    operationInput.trim();
+    if (operationInput.length() == 0) {
+        Serial.println("No operation entered! Please try again.");
+        return;
+    }
+    char operation = operationInput[0];
     Serial.print("You selected: ");
     Serial.println(operation);
 
     Serial.println("Enter the value:");
-    while (Serial.available() == 0) {}
+    while (Serial.available() == 0) {
+        delay(100); // Small delay to prevent blocking
+    }
     String valInput = Serial.readStringUntil('\n');
     valInput.trim();
     if (valInput.length() == 0) {
@@ -130,7 +135,7 @@ void itemManager::modifyQuantity(){
     }
 }
 
-void itemManager::enlightItem(){
+void itemManager::enlightItem(Grid4x4* grid){
     Serial.println("Choose the item you want to enlighten from this list:");
     displayItems();
 
@@ -159,12 +164,22 @@ void itemManager::enlightItem(){
     for (int i = 0; i < nbSlots; i++) {
         int x = affectedSlots[i].x;
         int y = affectedSlots[i].y;
-        grid.cells[x][y].led = CRGB::White;
+        grid->cells[x][y].led = CRGB::White;
     }
+    
+    // Update the physical LEDs immediately
+    for (int i = 0; i < TAILLE; i++) {
+        for (int j = 0; j < TAILLE; j++) {
+            int numLed = grid->cells[i][j].numeroleds;
+            leds[numLed] = grid->cells[i][j].led;
+        }
+    }
+    FastLED.show();
+    
     Serial.println("LEDs updated for the selected item.");
 }
 
-void itemManager::actionChoice(){
+void itemManager::actionChoice(Grid4x4* grid){
     Serial.println("Press q to modify a quantity or e to enlight an item of the inventory");
 
     while (!(Serial.available() > 0)) {}
@@ -179,7 +194,7 @@ void itemManager::actionChoice(){
             modifyQuantity();
             break;
         case 'e':
-            enlightItem();
+            enlightItem(grid);
             break;
         default:
             Serial.print("You entered an incorrect keystroke! ");

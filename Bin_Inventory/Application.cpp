@@ -29,8 +29,6 @@ void Application::init(void)
   initialiserLEDs();
   lireBoutonsPoussoirs(&grid);
   detectionManager.setInitialState(&grid);
-}
-
   // Autres initialisations si nécessaires
 }
 

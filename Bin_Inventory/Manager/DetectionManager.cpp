@@ -130,3 +130,11 @@ void DetectionManager::gererDetection(Grid4x4 *grille, itemManager *manager) {
         }
     }
 }
+
+void DetectionManager::setInitialState(Grid4x4 *grille) {
+    for (int i = 0; i < TAILLE; i++) {
+        for (int j = 0; j < TAILLE; j++) {
+            etatPrecedentCapteurs[i][j] = grille->cells[i][j].capteur;
+        }
+    }
+}

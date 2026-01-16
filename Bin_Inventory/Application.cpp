@@ -25,8 +25,11 @@ void Application::init(void)
   // Code
   Serial.begin(115200);
   grid.initialiser();
-  initialiserLEDs();
   initialiserCapteurs();
+  initialiserLEDs();
+  lireBoutonsPoussoirs(&grid);
+  detectionManager.setInitialState(&grid);
+}
 
   // Autres initialisations si nécessaires
 }

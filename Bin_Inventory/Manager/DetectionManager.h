@@ -17,6 +17,7 @@ public:
     DetectionManager();
     void detecterChangement(Grid4x4 *grille);
     void gererDetection(Grid4x4 *grille, itemManager *manager);
+    void setInitialState(Grid4x4 *grille);
 };
 
 #endif

@@ -7,9 +7,9 @@
 #define NUM_LEDS (TAILLE * TAILLE)
 
 struct Cellule {
-    bool capteur;
-    CRGB led;
-    int numeroleds;
+    bool capteur;   // État du capteur (true = activé, false = désactivé)
+    CRGB led;    // Couleur de la LED associée
+    int numeroleds; // Numéro de la LED dans la bande
 };
 
 struct Grid4x4 {

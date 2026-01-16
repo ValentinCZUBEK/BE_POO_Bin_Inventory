@@ -6,7 +6,7 @@ void Grid4x4::initialiser() {
             cells[i][j].capteur = false;  // Capteur inactif
             cells[i][j].led = CRGB::Black;  // LED éteinte
             
-            // Numérotation en serpentin inversé
+            // Numérotation en serpentin inversé (zigzag, car nos LEDs sont câblées ainsi)
             if (i % 2 == 0) {
                 // Lignes paires: droite à gauche
                 cells[i][j].numeroleds = i * TAILLE + (TAILLE - 1 - j);

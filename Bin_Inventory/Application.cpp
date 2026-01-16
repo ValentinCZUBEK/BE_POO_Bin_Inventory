@@ -45,7 +45,7 @@ void Application::run(void)
   detectionManager.gererDetection(&grid, &manager);
   
   // Gérer les interactions utilisateur via Serial
-  //if(Serial.available()>0){
-  //manager.actionChoice();
-  //}
+  if(Serial.available()>0){
+  manager.actionChoice();
+  }
 }

@@ -2,6 +2,7 @@
 
 Projet d'inventaire électronique en C++ utilisant la programmation orientée objet (POO).
 
+
 ## Description
 
 Ce projet vise à créer une application d'inventaire électronique en C++ en utilisant les principes de la programmation orientée objet. 
@@ -16,6 +17,7 @@ Il a deux actions possibles :
 - Modifier la quantité d'un item
 - Faire resortir un item visuellement (allumage LED)
 
+
 ## Fonctionnalités 
 
 - Détection de la présence/absence de bins sur une matrice de capteurs
@@ -23,6 +25,7 @@ Il a deux actions possibles :
 - Affichage de l'inventaire actuel via le moniteur série
 - Modification de la quantité d'un item
 - Allumage LED pour faire ressortir un item visuellement
+
 
 ## Technologies Utilisées
 
@@ -56,7 +59,6 @@ Il a deux actions possibles :
 
 Ce projet d'inventaire électronique est une idée innovante qui met en œuvre la programmation orientée objet en C++ tout en offrant un cas concret d'utilisation.
 
-!
 
 ## Auteurs
 

@@ -56,7 +56,7 @@ Il a deux actions possibles :
 
 Ce projet d'inventaire électronique est une idée innovante qui met en œuvre la programmation orientée objet en C++ tout en offrant un cas concret d'utilisation.
 
-
+!
 
 ## Auteurs
 

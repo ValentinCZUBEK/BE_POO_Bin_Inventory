@@ -172,6 +172,12 @@ void itemManager::enlightItem(Grid4x4* grid){
         for (int j = 0; j < TAILLE; j++) {
             int numLed = grid->cells[i][j].numeroleds;
             leds[numLed] = grid->cells[i][j].led;
+            Serial.print("LED at (");
+            Serial.print(i);
+            Serial.print(", ");
+            Serial.print(j);
+            Serial.print(") set to ");
+            Serial.println(leds[numLed]);
         }
     }
     FastLED.show();

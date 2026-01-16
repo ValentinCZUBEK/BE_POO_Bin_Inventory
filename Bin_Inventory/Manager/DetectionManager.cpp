@@ -82,12 +82,12 @@ void DetectionManager::gererDetection(Grid4x4 *grille, itemManager *manager) {
             while (Serial.available() == 0) {}
             String quantInput = Serial.readStringUntil('\n');
             quantInput.trim();
-            int quantite = quantInput.toInt();
-            if (quantite == 0 && quantInput != "0") {
-                Serial.println("Quantité invalide, annulation.");
+            if (quantInput.length() == 0) {
+                Serial.println("Quantité non entrée, annulation.");
                 changementAjoutDetecte = false;
                 return;
             }
+            int quantite = quantInput.toInt();
 
             // Ajouter l'item au gestionnaire
             manager->add(nb_slots, affected_slots, nom, valeur, quantite);

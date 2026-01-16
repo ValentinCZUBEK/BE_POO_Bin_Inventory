@@ -78,11 +78,11 @@ void itemManager::modifyQuantity(){
     while (Serial.available() == 0) {}
     String idInput = Serial.readStringUntil('\n');
     idInput.trim();
-    int itemId = idInput.toInt();
-    if (itemId == 0 && idInput != "0") {
-        Serial.println("Invalid ID! Please try again.");
+    if (idInput.length() == 0) {
+        Serial.println("No ID entered! Please try again.");
         return;
     }
+    int itemId = idInput.toInt();
     Serial.print("You selected item ID: ");
     Serial.println(itemId);
 
@@ -102,11 +102,11 @@ void itemManager::modifyQuantity(){
     while (Serial.available() == 0) {}
     String valInput = Serial.readStringUntil('\n');
     valInput.trim();
-    int newValue = valInput.toInt();
-    if (newValue == 0 && valInput != "0") {
-        Serial.println("Invalid value! Please try again.");
+    if (valInput.length() == 0) {
+        Serial.println("No value entered! Please try again.");
         return;
     }
+    int newValue = valInput.toInt();
     Serial.print("You entered: ");
     Serial.println(newValue);
 
@@ -138,11 +138,11 @@ void itemManager::enlightItem(){
     while (Serial.available() == 0) {}
     String idInput = Serial.readStringUntil('\n');
     idInput.trim();
-    int itemId = idInput.toInt();
-    if (itemId == 0 && idInput != "0") {
-        Serial.println("Invalid ID! Please try again.");
+    if (idInput.length() == 0) {
+        Serial.println("No ID entered! Please try again.");
         return;
     }
+    int itemId = idInput.toInt();
     Serial.print("You selected item ID: ");
     Serial.println(itemId);
 

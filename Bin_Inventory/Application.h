@@ -9,6 +9,9 @@
 #include "Hardware/Grid.h"
 #include "Manager/itemsManager.h"
 #include "Manager/DetectionManager.h"
+#include "Hardware/Led.h"
+#include "Hardware/Capteur.h"
+
 
 /**
   * @class Application

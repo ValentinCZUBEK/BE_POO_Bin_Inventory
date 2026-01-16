@@ -7,6 +7,7 @@
 
 #include "Arduino.h"
 
+
 Application::Application()
 {
   // Code
@@ -24,6 +25,9 @@ void Application::init(void)
   // Code
   Serial.begin(115200);
   grid.initialiser();
+  initialiserLEDs();
+  initialiserCapteurs();
+
   // Autres initialisations si nécessaires
 }
 
@@ -31,6 +35,8 @@ void Application::init(void)
 void Application::run(void)
 {
   // Code
+  lireBoutonsPoussoirs(&grid);
+  mettreAJourLEDs(&grid);
   // Détecter les changements sur la grille
   detectionManager.detecterChangement(&grid);
   
@@ -38,5 +44,7 @@ void Application::run(void)
   detectionManager.gererDetection(&grid, &manager);
   
   // Gérer les interactions utilisateur via Serial
-  manager.actionChoice();
+  //if(Serial.available()>0){
+  //manager.actionChoice();
+  //}
 }

@@ -35,6 +35,7 @@ void initialiserLEDs() {
     for (int i=0 ; i < NUM_LEDS ; i++) {
         etatPrecedentLEDs[i] = CRGB :: Black;
     }
+    FastLED.show();
 }
 
 // Vérification et mise à jour des LEDs en physiques, en fonction de l'état de la grille

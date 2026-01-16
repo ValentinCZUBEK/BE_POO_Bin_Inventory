@@ -15,8 +15,6 @@ DetectionManager::DetectionManager() :
 
 // Méthode pour détecter les changements (non bloquante)
 void DetectionManager::detecterChangement(Grid4x4 *grille) {
-    // Lire l'état actuel des capteurs
-    lireBoutonsPoussoirs(grille);
 
     // Détection des ajouts (0 à 1)
     if (!changementAjoutDetecte) {
@@ -50,7 +48,6 @@ void DetectionManager::gererDetection(Grid4x4 *grille, itemManager *manager) {
     // Gestion de l'ajout
     if (changementAjoutDetecte) {
         if (millis() - lastDetectionTime >= DELAI_DETECTION) {
-            lireBoutonsPoussoirs(grille);
 
             int nb_slots = 0;
             struct coordinates affected_slots[TAILLE * TAILLE];
@@ -102,7 +99,7 @@ void DetectionManager::gererDetection(Grid4x4 *grille, itemManager *manager) {
     // Gestion de la suppression
     else if (changementSuppressionDetecte) {
         if (millis() - lastDetectionTime >= DELAI_DETECTION) {
-            lireBoutonsPoussoirs(grille);
+
 
             int nb_slots = 0;
             struct coordinates affected_slots[TAILLE * TAILLE];

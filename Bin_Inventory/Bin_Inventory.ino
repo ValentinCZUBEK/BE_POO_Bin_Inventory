@@ -10,6 +10,9 @@
 #include "Manager/DetectionManager.cpp"
 #include "Manager/itemsManager.cpp"
 
+// Déclaration de l'array des LEDs physiques
+CRGB leds[NUM_LEDS];
+
 Application myApplication;
 
 void setup() 
